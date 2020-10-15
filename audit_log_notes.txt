@@ -1,0 +1,15 @@
+Notes about Discord's Audit Log
+- No event is triggered when an entry is created
+- Iteration through the entries occurs in reverse chronological order
+- Does not record message deletions when:
+    - Users delete their own messages
+    - Bots delete messages
+- Does not record the message IDs nor content of the deleted messages
+- Upon message deletion for the same executor, target, and channel:
+    - The very first time:
+        - A new entry is created
+    - Within 5 minutes of the entry's creation:
+        - The entry's message deletion count increases
+    - Else:
+        - Yet another entry is created
+- An increase in an entry's message deletion count does not change the ID of the entry

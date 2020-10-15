@@ -1,0 +1,26 @@
+{
+  "name": "marcs-bot",
+  "version": "1.0.0",
+  "description": "Supplements other Discord logging bots by providing more details in the logging system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository" : { 
+    "type" : "git",
+    "url" : "https://github.com/Picowchew/Marcs-bot"
+  },
+  "keywords": [
+    "discord-bot",
+    "discord",
+    "logging"
+  ],
+  "author": "Picowchew",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^12.3.1"
+  },
+  "engines": {
+    "node": "12.x"
+  }
+}
