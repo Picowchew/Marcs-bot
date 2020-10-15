@@ -104,3 +104,6 @@ dist
 .tern-port
 # Mac OS
 .DS_Store
+
+# Local files
+config.json
