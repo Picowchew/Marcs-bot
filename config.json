@@ -1,5 +1,5 @@
 {
-	"PREFIX": "]",
+    "PREFIX": "]",
     "TOKEN": "insert-bot-token-here",
     "OWNER_ID": "012345678901234567",
     "ADMINS_ID": ["012345678901234567", "012345678901234567"],
