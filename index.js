@@ -143,9 +143,9 @@ client.on('message', async message => {
 });
 
 client.on('messageDelete', async message => {
-	if (message.channel.type === 'dm') return;
-	const del_logs = await GUILD.fetchAuditLogs({
-		type: 'MESSAGE_DELETE',
+  if (message.channel.type === 'dm' || message.guild.id !== GUILD_ID) return;
+  const del_logs = await GUILD.fetchAuditLogs({
+    type: 'MESSAGE_DELETE',
   });
   const now = Date.now();
   const entries = del_logs.entries.filter(entry =>
@@ -165,8 +165,9 @@ client.on('messageDelete', async message => {
 });
 
 client.on('guildMemberRemove', async member => {
-	const kick_logs = await GUILD.fetchAuditLogs({
-		type: 'MEMBER_KICK',
+  if (member.guild.id !== GUILD_ID) return;
+  const kick_logs = await GUILD.fetchAuditLogs({
+    type: 'MEMBER_KICK',
   });
   const now = Date.now();
   const kick_log_found = kick_logs.entries.find(kick_log =>
@@ -186,8 +187,9 @@ client.on('guildMemberRemove', async member => {
 });
 
 client.on('guildBanAdd', async (guild, user) => {
-	const ban_logs = await GUILD.fetchAuditLogs({
-		type: 'MEMBER_BAN_ADD',
+  if (guild.id !== GUILD_ID) return;
+  const ban_logs = await GUILD.fetchAuditLogs({
+    type: 'MEMBER_BAN_ADD',
   });
   const now = Date.now();
   const ban_log_found = ban_logs.entries.find(ban_log =>
